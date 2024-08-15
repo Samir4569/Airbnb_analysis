@@ -35,42 +35,41 @@ I looked at the distributions of the data and the value counts for the various c
 
 
 ## Key Questions 
-*Can you describe the vibe of each Seattle neighborhood using listing descriptions?
-*What are the busiest times of the year to visit Seattle? By how much do prices spike?
-*Is there a general upward trend of both new Airbnb listings and total Airbnb visitors to Seattle?
+* 1. Can you describe the vibe of each Seattle neighborhood using listing descriptions?
+* 2. What are the busiest times of the year to visit Seattle? By how much do prices spike?
+* 3. Is there a general upward trend of both new Airbnb listings and total Airbnb visitors to Seattle?
 
-I also split the data into train and tests sets with a test size of 20%.   
+1) I performed a sentiment analysis and identified the most frequently used words in reviews for the top 20 neighborhoods. Based on these results, it seems fair to say that these neighborhoods are worth visiting.
 
-I tried two different models and evaluated them using Accuracy_score and Classification Report. I used accuracy_score and classification_report because it is relatively easy to interpret and outliers aren’t particularly bad in for this type of model.   
+Broadway: apartment, clean, comfortable, great, hill
+Central Business District: apartment, clean, comfortable, great, perfect
+Columbia City: city, clean, comfortable, great, nice
+East Queen Anne: clean, comfortable, great, perfect, space
+Eastlake: clean, comfortable, easy, great, nice
+Fairmount Park: clean, comfortable, great, nice, west
+First Hill: apartment, clean, comfortable, easy, great
+Fremont: clean, comfortable, fremont, great, space
+Gatewood: clean, comfortable, great, nice, recommend
 
-I tried two different models:
-*	**k-nearest neighbor** – Baseline for the model
-*	**Random Forest** – Again, with the sparsity associated with the data, I thought that this would be a good fit. 
+2) Using the groupby and mean functions, I determined that July is the busiest month.
+month - the sum of avilable places 
+7    0.304679
+6    0.334716
+5    0.388274
+4    0.401806
 
+3) After determining the cheapest average price per month and analyzing new visitors, I found that new visitors arrived in the month with the lowest average price.
 
+month - avg price for each month
+1     267.474076
+2     267.474076
+3     267.474076
+4     267.474076
+5     267.474076
+6     266.927041
 
-**Classification Report:**
-
-|               | Precision | Recall | F1-Score | Support |
-|---------------|-----------|--------|----------|---------|
-| 0             | 0.69      | 0.67   | 0.68     | 492     |
-| 1             | 0.80      | 0.81   | 0.81     | 808     |
-| **Accuracy**  |           |        | 0.76     | 1300    |
-| **Macro Avg** | 0.74      | 0.74   | 0.74     | 1300    |
-| **Weighted Avg** | 0.76   | 0.76   | 0.76     | 1300    |
-
-*	**k-nearest neighbor**: accuracy_score =  0.76
-
-**Classification Report:**
-
-|               | Precision | Recall | F1-Score | Support |
-|---------------|-----------|--------|----------|---------|
-| 0             | 0.80      | 0.73   | 0.76     | 492     |
-| 1             | 0.84      | 0.89   | 0.87     | 808     |
-| **Accuracy**  |           |        | 0.83     | 1300    |
-| **Macro Avg** | 0.82      | 0.81   | 0.81     | 1300    |
-| **Weighted Avg** | 0.83   | 0.83   | 0.83     | 1300    |
-
+df_new_visitor['month'].unique()
+output : array([6])
 
 
 
