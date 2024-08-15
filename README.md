@@ -1,10 +1,6 @@
 # Airbnb analysis: Project Overview
 
-* Analyzed neighborhood trends in Seattle, focusing on availability, prices, and visitor behaviors.
-* Preprocessed the data by converting date formats, handling missing values, and encoding availability.
-* Analyzed the impact of new visitors on availability and identified key months for visitor influx.
-* Created a neighborhood sentiment analysis based on visitor reviews using text processing and vectorization.
-* Extracted the most frequent keywords associated with each neighborhood's reviews.
+I analyzed neighborhood trends in Seattle, focusing on availability, prices, and visitor behaviors. The data was preprocessed by converting date formats, handling missing values, and encoding availability. I examined how new visitors impact availability and identified key months with high visitor influx. Additionally, I performed sentiment analysis on visitor reviews to extract the most frequent keywords associated with each neighborhood.
   
 ## Code and Resources Used 
 **Python Version:** 3.7  
@@ -39,37 +35,37 @@ I looked at the distributions of the data and the value counts for the various c
 * 2. What are the busiest times of the year to visit Seattle? By how much do prices spike?
 * 3. Is there a general upward trend of both new Airbnb listings and total Airbnb visitors to Seattle?
 
-1) I performed a sentiment analysis and identified the most frequently used words in reviews for the top 20 neighborhoods. Based on these results, it seems fair to say that these neighborhoods are worth visiting.
+## Sentiment Analysis Results
+- Performed sentiment analysis and identified the most frequently used words in reviews for the top 20 neighborhoods. The key terms for each neighborhood are:
+  - **Broadway:** apartment, clean, comfortable, great, hill
+  - **Central Business District:** apartment, clean, comfortable, great, perfect
+  - **Columbia City:** city, clean, comfortable, great, nice
+  - **East Queen Anne:** clean, comfortable, great, perfect, space
+  - **Eastlake:** clean, comfortable, easy, great, nice
+  - **Fairmount Park:** clean, comfortable, great, nice, west
+  - **First Hill:** apartment, clean, comfortable, easy, great
+  - **Fremont:** clean, comfortable, fremont, great, space
+  - **Gatewood:** clean, comfortable, great, nice, recommend
+- Based on these results, it appears that these neighborhoods are highly recommended.
 
-Broadway: apartment, clean, comfortable, great, hill
-Central Business District: apartment, clean, comfortable, great, perfect
-Columbia City: city, clean, comfortable, great, nice
-East Queen Anne: clean, comfortable, great, perfect, space
-Eastlake: clean, comfortable, easy, great, nice
-Fairmount Park: clean, comfortable, great, nice, west
-First Hill: apartment, clean, comfortable, easy, great
-Fremont: clean, comfortable, fremont, great, space
-Gatewood: clean, comfortable, great, nice, recommend
+## Busiest Month Analysis
+- Using the `groupby` and `mean` functions, I determined that July is the busiest month for availability.
+  - Monthly average availability:
+    - **July:** 0.304679
+    - **June:** 0.334716
+    - **May:** 0.388274
+    - **April:** 0.401806
 
-2) Using the groupby and mean functions, I determined that July is the busiest month.
-month - the sum of avilable places 
-7    0.304679
-6    0.334716
-5    0.388274
-4    0.401806
-
-3) After determining the cheapest average price per month and analyzing new visitors, I found that new visitors arrived in the month with the lowest average price.
-
-month - avg price for each month
-1     267.474076
-2     267.474076
-3     267.474076
-4     267.474076
-5     267.474076
-6     266.927041
-
-df_new_visitor['month'].unique()
-output : array([6])
+## Cheapest Month and New Visitors
+- After analyzing the average price per month and the presence of new visitors, I found that new visitors tend to book during the month with the lowest average price(June).
+  - Monthly average prices:
+    - **January:** 267.47
+    - **February:** 267.47
+    - **March:** 267.47
+    - **April:** 267.47
+    - **May:** 267.47s
+    - **June:** 266.93
+  - New visitors primarily booked in June, the month with the lowest average price.
 
 
 
